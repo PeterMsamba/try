@@ -5,11 +5,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    h2 {
+      display: none;
+    }
+
+    .btn::before {
+      content: '=';
+    }
+
+    .btn.open::before {
+      content: 'X';
+    }
+
+    h2.open {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
   <p>my nane is Peter</p>
   <img src="image.webp">
+  <marquee>Peter</marquee>
+
+  <button class="btn"></button>
+  <h2>Let do this</h2>
+
+  <button class="opnBtn">Open <Dialog></Dialog></button>
+  <dialog class="myDialog">
+    <h2>Welcome</h2>
+    <p>More info here</p>
+    <button class="clsBtn">Close</button>
+  </dialog>
+
+  <script>
+    const clickbtn = document.querySelector('.btn');
+    const hdng = document.querySelector('h2');
+
+    clickbtn.addEventListener('click', () => {
+      clickbtn.classList.toggle('open');
+      hdng.classList.toggle('open');
+    });
+
+    const dialog = document.querySelector('.myDialog');
+    const openBtn = document.querySelector('.opnBtn');
+    const closeBtn = document.querySelector('.clsBtn');
+    console.log(openBtn);
+    console.log(dialog);
+    openBtn.addEventListener('click', () => {
+      dialog.showModal();
+    });
+    closeBtn.addEventListener('click', () => {
+      dialog.close();
+    });
+  </script>
 </body>
 
 </html>
