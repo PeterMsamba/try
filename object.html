@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Home</h1>
+  <div class="main-div">
+
+  </div>
+  <script>
+    const temples = [
+      {
+        templeName: "Aba Nigeria",
+        location: "Aba, Nigeria",
+        dedicated: "2005, August, 7",
+        area: 11500
+      },
+      {
+       templeName: "Manti Utah",
+        location: "Manti, Utah, United States",
+        dedicated: "1888, May, 21",
+        area: 74792
+        }
+    ];
+    temples.push(
+      {
+       templeName: "Manti Utah",
+        location: "Manti, Utah, United States",
+        dedicated: "1888, May, 21",
+        area: 74792
+        }
+    );
+    const mainDiv = document.querySelector('.main-div');
+    
+    temples.forEach(temple => {
+      const templeCard = `
+      <div class="templeCard">
+        <h2>${temple.templeName}</h2>
+        <p>Location: ${temple.location}</p>
+      </div>  
+    `;
+
+     mainDiv.innerHTML += templeCard;
+    });
+    
+    const usTemple = temples.filter(temple => {
+      return temple.location.includes("United States");
+    });
+   console.log(usTemple);
+    
+  </script>
+</body>
+</html>
